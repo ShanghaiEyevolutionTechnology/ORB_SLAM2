@@ -139,7 +139,7 @@ int main(int argc, char **argv)
 				imLeft = evoMat2cvMat(evo_left);
 				imRight = evoMat2cvMat(evo_right);
 
-				double tframe = camera.getCurrentFrameTimeCode();
+				double tframe = (double)camera.getCurrentFrameTimeCode() / 1000000000;
 
 				// Pass the images to the SLAM system
 				cv::Mat pose = SLAM.TrackStereo(imLeft, imRight, tframe);
